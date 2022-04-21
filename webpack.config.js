@@ -2,6 +2,8 @@ const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
+const replaceLoaderPath = path.resolve(__dirname, './loaders/replace.js')
+
 module.exports = {
     entry: "./src/index.ts",
     output: {
@@ -38,6 +40,8 @@ module.exports = {
                             ]
                         }
                     },
+                    replaceLoaderPath,
+                    // path.resolve(__dirname, './loaders/replace.js'),
                     'ts-loader',
                 ],
                 exclude: /node_modules/
